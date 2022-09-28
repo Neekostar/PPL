@@ -1,4 +1,4 @@
-from random import random, randint
+from random import random
 
 N = int(input('Введите размерность массива:\n'))
 lst = [random() for i in range(N)]
