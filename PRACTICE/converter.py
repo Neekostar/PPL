@@ -11,7 +11,7 @@ def write_data_into_csv():
     date_of_born = input("Введите дату рождения:\n")
     city = input("Введите город проживания:\n")
 
-    with open("output.csv", "w", newline="") as file:
+    with open("/home/neekostar/PycharmProjects/PPL/PRACTICE/output.csv", "w", newline="") as file:
         writer = csv.DictWriter(file, fieldnames=["name", 'surname', "date of born", "city"],
                                 quoting=csv.QUOTE_NONNUMERIC)
         writer.writeheader()
@@ -26,7 +26,7 @@ def rewrite_data_into_csv():
     new_date_of_born = input("Введите новую дату рождения:\n")
     new_city = input("Введите новый город проживания:\n")
 
-    with open("output.csv", "w", newline="") as file:
+    with open("/home/neekostar/PycharmProjects/PPL/PRACTICE/output.csv", "w", newline="") as file:
         writer = csv.DictWriter(file, fieldnames=["name", 'surname', "date of born", "city"],
                                 quoting=csv.QUOTE_NONNUMERIC)
         writer.writeheader()
@@ -41,7 +41,7 @@ def append_new_data_into_csv():
     appending_date_of_born = input("Введите дату рождения:\n")
     appending_city = input("Введите город проживания:\n")
 
-    with open("output.csv", "a", newline="") as file:
+    with open("/home/neekostar/PycharmProjects/PPL/PRACTICE/output.csv", "a", newline="") as file:
         writer = csv.DictWriter(file, fieldnames=["name", 'surname', "date of born", "city"],
                                 quoting=csv.QUOTE_NONNUMERIC)
         writer.writerow({"name": appending_name, "surname": appending_surname, "date of born": appending_date_of_born,
@@ -51,7 +51,7 @@ def append_new_data_into_csv():
 
 def print_data_from_csv():
     cls()
-    with open("output.csv", "r") as file:
+    with open("/home/neekostar/PycharmProjects/PPL/PRACTICE/output.csv", "r") as file:
         reader = csv.DictReader(file, delimiter=",")
         for row in reader:
             print(
@@ -61,7 +61,7 @@ def print_data_from_csv():
 def convert_csv_to_xml():
     cls()
     xml_data_list = []
-    with open("output.csv") as file:
+    with open("/home/neekostar/PycharmProjects/PPL/PRACTICE/output.csv") as file:
         reader = csv.DictReader(file)
         for row in reader:
             xml_data_list.append(row.copy())
@@ -75,19 +75,19 @@ def convert_csv_to_xml():
             ET.SubElement(person, "City").text = item["city"]
 
         tree = ET.ElementTree(root)
-        tree.write("output.xml")
+        tree.write("/home/neekostar/PycharmProjects/PPL/PRACTICE/output.xml")
     print("Данные успешно конвертированы!")
 
 
 def convert_csv_to_json():
     cls()
     json_data_list = []
-    with open("output.csv") as file:
+    with open("/home/neekostar/PycharmProjects/PPL/PRACTICE/output.csv") as file:
         reader = csv.DictReader(file)
         for row in reader:
             json_data_list.append(row.copy())
 
-    with open("output.json", "w") as file:
+    with open("/home/neekostar/PycharmProjects/PPL/PRACTICE/output.json", "w") as file:
         str = json.dumps(json_data_list, indent=4)
         file.write(str)
     print("Данные успешно конвертированы!")
