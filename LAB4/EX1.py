@@ -2,15 +2,14 @@ import numpy as np
 from scipy import linalg
 import matplotlib.pyplot as plt
 
-matrix = np.random.random((5, 5))
-matrix *= 10
+matrix = np.random.randint(4, size=(2, 2))
+matrix *= 2
 print(matrix)
 matrix = matrix.astype(np.int32, copy=False)
 print(matrix)
 determinant = linalg.det(matrix)
 print(determinant)
 inverse_matrix = linalg.inv(matrix)
-inverse_matrix = inverse_matrix.astype(np.int32, copy=False)
 print(inverse_matrix)
 inverse_matrix_determinant = linalg.det(inverse_matrix)
 print(inverse_matrix_determinant)
